@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Himanshu Das — Senior Creative Designer</title>
+<meta name="description" content="Senior Creative Designer with 9+ years in performance creative, motion graphics, UI/UX, design systems and AI-accelerated design workflows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F6F3;--ink:#16181D;--mute:#6B6F76;--line:#DDDDD6;--accent:#2F3CFF;--accent-ink:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:500;letter-spacing:-.02em}
+
+/* cursor glow */
+.glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;z-index:0;
+background:radial-gradient(circle,rgba(47,60,255,.10),transparent 65%);transition:opacity .4s;opacity:0}
+body.moving .glow{opacity:1}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:10;background:rgba(246,246,243,.8);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-color:var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font:600 18px "Bricolage Grotesque",sans-serif}
+.links{display:flex;gap:28px;font-size:15px}
+.links a{position:relative;padding:4px 0}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 60px;position:relative;z-index:1}
+.role{color:var(--mute);margin-bottom:22px;max-width:46ch}
+.name{font-size:clamp(56px,13vw,176px);line-height:.92;font-weight:300;cursor:default;user-select:none}
+.name span{display:inline-block;font-variation-settings:"wght" 300;transition:font-variation-settings .25s ease-out}
+.name .row{display:block}
+.intro{max-width:56ch;margin-top:40px;font-size:19px}
+.cta-row{display:flex;gap:16px;align-items:center;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:500;position:relative;overflow:hidden;transition:transform .2s ease-out,box-shadow .3s;will-change:transform}
+.btn::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.btn:hover::before{transform:none}
+.btn:hover{box-shadow:0 14px 34px -12px rgba(47,60,255,.55)}
+.btn>*{position:relative}
+.btn .arr{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .arr{transform:translate(4px,-4px)}
+.ghost{padding:16px 6px;color:var(--ink);border-bottom:1px solid var(--ink);transition:color .2s,border-color .2s}
+.ghost:hover{color:var(--accent);border-color:var(--accent)}
+
+/* sections */
+section{position:relative;z-index:1;padding:110px 0;border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:200px 1fr;gap:40px}
+.head h2{font-size:15px;font-weight:500;color:var(--mute);letter-spacing:0;font-family:"DM Sans",sans-serif;padding-top:8px}
+@media(max-width:780px){.head{grid-template-columns:1fr;gap:20px}.links{gap:16px;font-size:14px}}
+
+/* experience */
+.job{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:32px 20px;margin:0 -20px;border-bottom:1px solid var(--line);border-radius:14px;transition:background .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.job:last-child{border-bottom:0}
+.job:hover{background:#fff;transform:translateX(8px)}
+.job h3{font-size:clamp(24px,3vw,34px)}
+.job .co{color:var(--mute)}
+.job .when{color:var(--mute);font-size:15px;text-align:right;white-space:nowrap}
+.job ul{grid-column:1/-1;list-style:none;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .4s ease,margin .4s;color:#3b3f46;font-size:16px}
+.job:hover ul,.job:focus-within ul{max-height:460px;opacity:1;margin-top:14px}
+.job li{padding:3px 0 3px 18px;position:relative;max-width:70ch}
+.job li::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--accent)}
+.job:focus-visible{outline-offset:-2px}
+@media(hover:none){.job ul{max-height:none;opacity:1;margin-top:14px}}
+
+/* skills */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{padding:28px;border-radius:18px;border:1px solid var(--line);background:transparent;position:relative;overflow:hidden;transition:border-color .3s,background .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(47,60,255,.09),transparent 70%);opacity:0;transition:opacity .3s}
+.card:hover{background:#fff;border-color:var(--accent);transform:translateY(-4px)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card h3{font-size:22px;margin-bottom:12px}
+.card p{color:var(--mute);font-size:15.5px;line-height:1.7}
+
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.chip{padding:9px 18px;border:1px solid var(--line);border-radius:999px;font-size:15px;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.chip:hover{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-2px)}
+
+/* contact */
+.contact h2.big{all:unset;display:block;font:300 clamp(40px,8vw,104px)/1 "Bricolage Grotesque",sans-serif;letter-spacing:-.03em;margin-bottom:44px}
+.mail{font:400 clamp(20px,3vw,32px) "Bricolage Grotesque",sans-serif;display:inline-block;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat;transition:background-size .5s cubic-bezier(.2,.8,.2,1),color .3s;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.mail:hover{background-size:100% 1px;color:var(--accent)}
+.social{display:flex;gap:28px;margin-top:28px;color:var(--mute)}
+.social a{transition:color .2s}.social a:hover{color:var(--accent)}
+footer{position:relative;z-index:1;padding:28px 0 40px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.glow{display:none}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<nav id="nav"><div class="wrap">
+  <a href="#top" class="logo">Himanshu Das</a>
+  <div class="links"><a href="#work">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <p class="role">Senior Creative Designer — Performance, Motion &amp; UI/UX</p>
+  <h1 class="name" id="name" aria-label="Himanshu Das"><span class="row" data-t="Himanshu"></span><span class="row" data-t="Das"></span></h1>
+  <p class="intro">9+ years designing performance creatives, motion graphics and product UI/UX for digital-first brands. I pair research-informed design thinking with AI-accelerated workflows to ship fast, consistent, conversion-focused work.</p>
+  <div class="cta-row">
+    <a class="btn" id="mag" href="https://www.behance.net/himanshudas1" target="_blank" rel="noopener"><span>View my work on Behance</span><span class="arr">↗</span></a>
+    <a class="ghost" href="#contact">Get in touch</a>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap"><div class="head"><h2>Experience</h2>
+  <div>
+    <article class="job" tabindex="0">
+      <div><h3>Deputy Manager, Creative &amp; UI/UX Designer</h3><div class="co">Religare Broking Ltd</div></div><div class="when">Jan 2023 – Present</div>
+      <ul>
+        <li>Lead creative execution for marketing, presales and internal stakeholders.</li>
+        <li>Design ad creatives, social visuals and motion assets tied to business goals.</li>
+        <li>Build wireframes and interactive Figma prototypes for customer-facing and internal platforms.</li>
+        <li>Work with product, marketing and development teams on conversion-focused experiences.</li>
+        <li>Use AI-assisted tools to speed up UI workflows, ideation and asset production.</li>
+        <li>Manage and mentor a design team across performance creatives, motion, UI/UX, HTML emailers and print.</li>
+        <li>Design UI/UX for Dynami, a trading platform, working with product and engineering in Jira.</li>
+        <li>Deliver compliance-ready branding creatives through exchange and regulatory approval workflows.</li>
+        <li>Maintain brand guidelines and design systems so work stays consistent at scale.</li>
+      </ul>
+    </article>
+    <article class="job" tabindex="0">
+      <div><h3>Senior Graphic Designer</h3><div class="co">Grandeur Interior Pvt. Ltd.</div></div><div class="when">Sep 2018 – Jan 2023</div>
+      <ul>
+        <li>Led branding and marketing design for luxury interior projects.</li>
+        <li>Designed brochures, catalogs, landing pages and digital campaigns.</li>
+        <li>Created motion graphics and short videos for brand storytelling.</li>
+        <li>Supported sales with pitch decks, mockups and advertiser-facing visuals.</li>
+      </ul>
+    </article>
+    <article class="job" tabindex="0">
+      <div><h3>Graphic Designer</h3><div class="co">Zohit Design Pvt. Ltd.</div></div><div class="when">Feb 2017 – Sep 2018</div>
+      <ul>
+        <li>Designed logos, banners and digital ad creatives across industries.</li>
+        <li>Supported performance campaigns with conversion-ready visuals.</li>
+        <li>Kept brands consistent across digital and print.</li>
+      </ul>
+    </article>
+  </div>
+</div></div></section>
+
+<section id="skills"><div class="wrap"><div class="head"><h2>Skills</h2>
+  <div>
+    <div class="grid">
+      <div class="card"><h3>Performance design</h3><p>Static and motion ad creatives, presales mockups, pitch visuals, short-form video ads, conversion-focused design systems.</p></div>
+      <div class="card"><h3>Motion</h3><p>Motion graphics, timing and easing, storyboarding, creative direction, ad transitions and micro-interactions.</p></div>
+      <div class="card"><h3>AI-accelerated design</h3><p>Prompt engineering, AI image and video generation, generative fill, AI-assisted prototyping with Figma Make, and faster concept-to-final turnaround.</p></div>
+      <div class="card"><h3>Design systems &amp; accessibility</h3><p>Reusable components, design tokens, brand guidelines, WCAG-aware contrast and typography, usability-focused interfaces.</p></div>
+      <div class="card"><h3>Leadership &amp; collaboration</h3><p>Team mentoring, stakeholder management, creative briefs, feedback cycles, cross-functional work with product, marketing and engineering.</p></div>
+      <div class="card"><h3>UI/UX</h3><p>Wireframing, prototyping, conversion-oriented landing pages, web and mobile UI, design–developer collaboration.</p></div>
+    </div>
+    <div class="tools" aria-label="Tools">
+      <span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">InDesign</span><span class="chip">After Effects</span><span class="chip">Premiere</span><span class="chip">Figma</span><span class="chip">Figma Make</span><span class="chip">Adobe XD</span><span class="chip">WordPress</span><span class="chip">HTML/CSS</span><span class="chip">Blender 3D</span><span class="chip">Adobe Firefly</span><span class="chip">Gemini</span><span class="chip">Kling AI</span><span class="chip">Higgsfield</span><span class="chip">Magicpath</span><span class="chip">Prompt Engineering</span><span class="chip">AI Image &amp; Video Generation</span><span class="chip">Design Systems</span><span class="chip">Brand Guidelines</span><span class="chip">Accessibility (WCAG)</span><span class="chip">Responsive Design</span><span class="chip">User Journeys</span><span class="chip">Information Architecture</span><span class="chip">Usability Testing</span><span class="chip">Wireframing</span><span class="chip">Prototyping</span><span class="chip">HTML Emailers</span><span class="chip">Landing Pages</span><span class="chip">Presales Design</span><span class="chip">Pitch Decks</span><span class="chip">Typography</span><span class="chip">Storyboarding</span><span class="chip">Jira</span><span class="chip">Team Leadership</span><span class="chip">Stakeholder Management</span>
+    </div>
+  </div>
+</div></div></section>
+
+<section id="education"><div class="wrap"><div class="head"><h2>Education &amp; certifications</h2>
+  <div class="grid">
+    <div class="card"><h3>Google UX Design</h3><p>Specialization, Coursera</p></div>
+    <div class="card"><h3>Generative AI</h3><p>Certification, upGrad</p></div>
+    <div class="card"><h3>Diploma in Graphic Designing</h3><p>Don Bosco Technical Institute, New Delhi. Best Student Award in Designing.</p></div>
+    <div class="card"><h3>B.Com (Hons.)</h3><p>Delhi University</p></div>
+  </div>
+</div></div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2 class="big">Let’s work together.</h2>
+  <a class="mail" href="mailto:hihimanshucontact@gmail.com">hihimanshucontact@gmail.com</a>
+  <div class="social">
+    <a href="https://www.behance.net/himanshudas1" target="_blank" rel="noopener">Behance</a>
+    <a href="https://www.linkedin.com/in/him-das" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© <span id="yr"></span> Himanshu Das</div></footer>
+
+<script>
+(function(){
+  var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav border
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 10); }, {passive:true});
+
+  // hero name: build letters
+  var name = document.getElementById('name'), letters = [];
+  name.querySelectorAll('.row').forEach(function(row){
+    row.setAttribute('aria-hidden','true');
+    row.dataset.t.split('').forEach(function(ch){
+      var s = document.createElement('span'); s.textContent = ch; row.appendChild(s); letters.push(s);
+    });
+  });
+
+  if(!fine || reduce) return;
+
+  // letter weight follows the cursor
+  var mx = -999, my = -999, raf;
+  function paint(){
+    letters.forEach(function(s){
+      var r = s.getBoundingClientRect(), cx = r.left + r.width/2, cy = r.top + r.height/2;
+      var d = Math.hypot(mx - cx, my - cy), w = Math.round(300 + 500 * Math.max(0, 1 - d/260));
+      s.style.fontVariationSettings = '"wght" ' + w;
+    });
+    raf = 0;
+  }
+  var glow = document.querySelector('.glow');
+  addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    document.body.classList.add('moving');
+    glow.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    if(!raf) raf = requestAnimationFrame(paint);
+  });
+  document.addEventListener('mouseleave', function(){ document.body.classList.remove('moving'); mx = my = -999; paint(); });
+
+  // magnetic button
+  var b = document.getElementById('mag');
+  b.addEventListener('mousemove', function(e){
+    var r = b.getBoundingClientRect();
+    b.style.transform = 'translate(' + ((e.clientX - r.left - r.width/2) * .22) + 'px,' + ((e.clientY - r.top - r.height/2) * .35) + 'px)';
+  });
+  b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+
+  // card spotlight
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('mousemove', function(e){
+      var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
+</script>
+</body>
+</html>
